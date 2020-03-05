@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/notesListFragment">
+  <fragment
+      android:id="@+id/notesListFragment"
+      android:name="com.marekfeifrlik.bscnotes.view.ui.NotesListFragment"
+      android:label="BSC Notes"
+      tools:layout="@layout/fragment_notes_list">
+    <action
+        android:id="@+id/action_to_noteDetailFragment_from_notesListFragment"
+        app:destination="@id/noteDetailFragment"/>
+  </fragment>
+  <fragment
+      android:id="@+id/noteDetailFragment"
+      android:name="com.marekfeifrlik.bscnotes.view.ui.NoteDetailFragment"
+      android:label="Note"
+      tools:layout="@layout/fragment_note_detail">
+    <argument
+        android:name="extra.noteId"
+        app:argType="integer"/>
+    <action
+        android:id="@+id/action_to_notesListFragment_from_noteDetailFragment"
+        app:destination="@id/notesListFragment"/>
+  </fragment>
+</navigation>
